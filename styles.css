@@ -1,99 +1,94 @@
 * {
-  padding: 0;
   margin: 0;
-  border: none;
-  outline: 0;
-  text-decoration: none;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
   color: white;
 }
 
 body {
-  background-color: rgb(6, 7, 12);
-  font-family: inter;
-  background-image: url(bg3.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 100vh;
-  padding: 0 10%;
-  animation: backgroundZoom 3s ease-in forwards;
+  background-color: #17153B;
+  text-align: center;
 }
 
-/* Header */
-#header, nav {
+header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  z-index: 1;
+  padding: 20px;
 }
 
 .nav-item {
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin-left: 60px;
-  transition: color 0.12s, transform 0.12s;
+  margin: 0 15px;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
-.nav-item:hover, .nav-item.active {
+.nav-item:hover {
   color: #3FA2F6;
 }
 
-.logo {
-  font-size: 2rem;
-  font-weight: 800;
+.section {
+  display: none;
+  padding: 50px;
 }
 
-/* Hero */
-#hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.section.active {
+  display: block;
 }
 
-.hero-left {
+.box-container {
   display: flex;
-  align-items: center;
-  padding-top: 150px;
-}
-
-h1 {
-  font-size: 4rem;
-  font-weight: 800;
-}
-
-h3 {
-  font-size: 2.3rem;
-  font-weight: 800;
-  color: #3FA2F6;
-}
-
-/* Skills Section */
-.skills-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
   justify-content: center;
-  padding: 20px 0;
+  gap: 20px;
 }
 
-.skill-box {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 15px 20px;
-  border-radius: 5px;
-  text-align: center;
+.box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 10px;
   font-size: 1.2rem;
-  border-top: 3px solid #3FA2F6;
-  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 2px solid transparent;
 }
 
-.skill-box:hover {
-  transform: scale(1.1);
-  box-shadow: 0px 0px 10px #3FA2F6;
+.box:hover {
+  border-color: #3FA2F6;
 }
 
-/* Animations */
-@keyframes backgroundZoom {
-  from { background-size: 80%; }
-  to { background-size: 100%; }
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-details {
+  text-align: left;
+  padding: 20px;
+}
+
+.contact-form {
+  width: 50%;
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 10px;
+  background: #3FA2F6;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: #2E236C;
 }
