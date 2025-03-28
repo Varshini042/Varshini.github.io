@@ -1,46 +1,41 @@
-// Typing Animation
+// Typing Effect for Roles
 const roles = ["Data Engineer", "BI Developer", "Data Analyst"];
-let index = 0;
+let roleIndex = 0;
 let charIndex = 0;
-const typingText = document.getElementById("typing-text");
+const dynamicRole = document.getElementById("dynamic-role");
 
-function typeEffect() {
-  if (charIndex < roles[index].length) {
-    typingText.innerHTML += roles[index].charAt(charIndex);
+function typeRole() {
+  if (charIndex < roles[roleIndex].length) {
+    dynamicRole.innerHTML += roles[roleIndex].charAt(charIndex);
     charIndex++;
-    setTimeout(typeEffect, 100);
+    setTimeout(typeRole, 100);
   } else {
-    setTimeout(eraseEffect, 2000);
+    setTimeout(eraseRole, 1500);
   }
 }
 
-function eraseEffect() {
+function eraseRole() {
   if (charIndex > 0) {
-    typingText.innerHTML = roles[index].substring(0, charIndex - 1);
+    dynamicRole.innerHTML = roles[roleIndex].substring(0, charIndex - 1);
     charIndex--;
-    setTimeout(eraseEffect, 50);
+    setTimeout(eraseRole, 50);
   } else {
-    index = (index + 1) % roles.length;
-    setTimeout(typeEffect, 500);
+    roleIndex = (roleIndex + 1) % roles.length;
+    setTimeout(typeRole, 500);
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(typeEffect, 500);
-});
+document.addEventListener("DOMContentLoaded", typeRole);
 
-// Fetch GitHub Projects
-async function loadProjects() {
-  const response = await fetch("https://api.github.com/users/Varshini042/repos");
-  const projects = await response.json();
-  const projectContainer = document.getElementById("projects-container");
-
-  projects.slice(0, 6).forEach((repo) => {
-    let projectDiv = document.createElement("div");
-    projectDiv.className = "project-box";
-    projectDiv.innerHTML = `<h3>${repo.name}</h3><p>${repo.description || "No description available"}</p><a href="${repo.html_url}" target="_blank">View Project</a>`;
-    projectContainer.appendChild(projectDiv);
+// Fetch Projects from GitHub
+fetch("https://api.github.com/users/Varshini042/repos")
+  .then(response => response.json())
+  .then(data => {
+    const projectList = document.getElementById("project-list");
+    data.slice(0, 6).forEach(repo => {
+      const projectItem = document.createElement("div");
+      projectItem.classList.add("project-item");
+      projectItem.innerHTML = `<h3>${repo.name}</h3><p>${repo.description || "No description available."}</p>`;
+      projectList.appendChild(projectItem);
+    });
   });
-}
-
-loadProjects();
