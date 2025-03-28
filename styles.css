@@ -1,94 +1,66 @@
+/* General */
 * {
-  margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  margin: 0;
   font-family: 'Inter', sans-serif;
+  text-decoration: none;
   color: white;
 }
 
 body {
-  background-color: #17153B;
-  text-align: center;
+  background-color: rgb(6, 7, 12);
+  background-image: url('bg3.png');
+  background-size: cover;
+  animation: backgroundZoom 3s ease-in forwards;
 }
 
-header {
+/* Header */
+#header {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 10px 10%;
 }
 
-.nav-item {
-  margin: 0 15px;
-  cursor: pointer;
-  transition: color 0.3s;
+/* Hero Section */
+h1 {
+  font-size: 4rem;
 }
-
-.nav-item:hover {
+h3 {
+  font-size: 2rem;
   color: #3FA2F6;
 }
 
-.section {
-  display: none;
-  padding: 50px;
-}
-
-.section.active {
-  display: block;
-}
-
-.box-container {
-  display: flex;
-  justify-content: center;
+/* Skills & Projects */
+.skills-container, #projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-}
-
-.box {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 40px;
-  border-radius: 10px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: 0.3s;
-  border: 2px solid transparent;
-}
-
-.box:hover {
-  border-color: #3FA2F6;
-}
-
-.contact-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.contact-details {
-  text-align: left;
   padding: 20px;
 }
 
-.contact-form {
-  width: 50%;
+.skill-box, .project-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.skill-box:hover, .project-box:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Contact */
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
 .contact-form input, .contact-form textarea {
-  width: 100%;
   margin-bottom: 10px;
   padding: 10px;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-}
-
-.contact-form button {
-  width: 100%;
-  padding: 10px;
-  background: #3FA2F6;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.contact-form button:hover {
-  background: #2E236C;
 }
